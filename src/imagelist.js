@@ -1,5 +1,3 @@
-import { Component } from 'react';
-
 function ImageList(props) {
 
   const images = props.images.map((image) => (
