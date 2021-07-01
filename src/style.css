@@ -6,3 +6,13 @@ img {
 ul {
     list-style: none;
 }
+
+.imagelist {
+    display: block;
+    text-align: center;
+}
+
+form {
+    display: block;
+    text-align: center;
+}

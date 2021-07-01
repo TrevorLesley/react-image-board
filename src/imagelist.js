@@ -21,7 +21,7 @@ class ImageList extends Component {
       </li>
     ));
     return (
-      <ul>{images}</ul>
+      <ul className='imagelist'>{images}</ul>
     )
   }
 
