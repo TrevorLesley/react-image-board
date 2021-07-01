@@ -12,8 +12,8 @@ class App extends Component {
       counter: 3,
     }
 
-    this.handleInput = this.handleInput.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.addImage = this.addImage.bind(this);
   }
 
   componentDidMount() {
@@ -38,23 +38,20 @@ class App extends Component {
     this.setState({ images });
   }
 
-  handleInput(event) {
-    this.setState({[event.target.name]: event.target.value})
-  }
+  
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.addImage({
-      url: this.state.url,
-      description: this.state.description,
-    });
-    this.setState({ url: '', description: '' });
+
+  addImage(image){
+    image.id = this.state.counter;
+    const images = [ ...this.state.images, image ];
+    this.setState({ images, counter: this.state.counter + 1 });
+
   }
   
   render() {
     return (
       <>
-        <ImageForm handleInput={this.handleInput} handleSubmit={this.handleSubmit}/>
+        <ImageForm images={this.state.images} handleInput={this.handleInput} handleSubmit={this.handleSubmit} addImage={this.addImage}/>
         <ImageList images={this.state.images}/>
       </>
     )
